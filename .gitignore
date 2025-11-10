@@ -13,3 +13,19 @@ crash.log
 
 # Provider binaries
 *.exe
+
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Sensitive variables
+*.tfvars
+
+# Provider binaries
+*.exe
