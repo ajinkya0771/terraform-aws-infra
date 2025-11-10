@@ -17,6 +17,10 @@ It includes:
 🔒 Security-compliant setup with all secrets redacted
 
 🧱 Architecture Diagram
+![Terraform AWS Infrastructure Architecture - Dark](./screenshots/Terraform_AWS_Architecture_Diagram_Dark.png)
+
+> **Diagram:** Terraform provisions a secure AWS environment with a VPC containing a public subnet (EC2 with Nginx) and a private subnet (RDS MySQL), managed by Security Groups and IAM roles — all automated via Terraform.
+
 
 The architecture provisions a complete AWS environment including a public EC2 instance, private RDS database, and VPC configuration.
 
