@@ -1,76 +1,93 @@
-🌩️ Terraform AWS Infrastructure Project — EC2 + RDS + Nginx (Final Version)
+# 🚀 Terraform AWS Infrastructure Project — EC2 + RDS + Nginx
 
-This project demonstrates an end-to-end AWS Infrastructure automation using Terraform, deploying:
+This project demonstrates an **end-to-end Infrastructure as Code (IaC)** deployment on **AWS using Terraform**, provisioning essential cloud resources automatically with minimal manual intervention.
 
-A secure EC2 instance (Ubuntu)
+---
 
-A managed RDS MySQL database
+## 🧩 Project Overview
 
-A running Nginx web server displaying a simple web page
+This Terraform configuration automates the deployment of:
 
-It’s a production-style setup showing Infrastructure as Code (IaC) with modular Terraform components.
+- **Amazon EC2 Instance** — Hosts an Nginx web server.
+- **Amazon RDS (MySQL)** — Provides a managed relational database.
+- **VPC, Subnets & Security Groups** — Ensures secure, isolated networking.
+- **Automated Initialization** — Installs and configures Nginx on EC2 automatically.
 
-🧱 Project Architecture
-        ┌────────────────────┐
-        │      VPC           │
-        │ ┌───────────────┐  │
-        │ │ Public Subnet │──┼──> EC2 Instance (Nginx)
-        │ └───────────────┘  │
-        │ ┌───────────────┐  │
-        │ │ Private Subnet│──┼──> RDS MySQL Database
-        │ └───────────────┘  │
-        └────────────────────┘
+---
 
-🧩 Key Terraform Files
-File	Description
-main.tf	Core infrastructure resources (EC2, RDS, networking)
-variables.tf	Input variables for modular configuration
-outputs.tf	Exposed outputs like web_public_ip and rds_endpoint
-provider.tf	AWS provider configuration
-terraform.tfvars	Variable values (region, instance type, etc.)
-screenshots/	Execution proof with Terraform CLI logs and web output
-⚙️ Terraform Workflow Commands
-# Initialize Terraform environment
-terraform init
+## 🏗️ Architecture Diagram
 
-# Validate configuration
-terraform validate
+![Terraform AWS Infrastructure Diagram](A_Terraform_AWS_Infrastructure_Project_Diagram_on_.png)
 
-# Preview the deployment plan
-terraform plan -out=tfplan
+---
 
-# Apply and create AWS resources
-terraform apply "tfplan"
+## ⚙️ Key Terraform Files
 
-# Destroy resources (optional cleanup)
-terraform destroy
+| File | Purpose |
+|------|----------|
+| `main.tf` | Main Terraform configuration (resources, EC2, RDS, networking). |
+| `provider.tf` | AWS provider configuration and authentication. |
+| `variables.tf` | Stores configurable variables for modularity. |
+| `outputs.tf` | Displays key resource outputs (e.g., EC2 public IP, RDS endpoint). |
+| `terraform.tfvars` | Sensitive variable values (excluded via `.gitignore`). |
 
-🖼️ Screenshots (Execution Proof)
-Step	Screenshot
-AWS Configure Identity	screenshots/00_aws_configure_identity.png
-Terraform Init	screenshots/01_terraform_init_success.png
-Terraform Validate	screenshots/Terraform validate success.png
-Terraform Plan	screenshots/02_terraform_plan.png
-Terraform Apply Complete	screenshots/03_terraform_apply_complete.png
-Final Web Page (Nginx Output)	screenshots/final_web_page.png
-🧠 Key Learnings
+---
 
-Provisioning multi-tier AWS infrastructure using Terraform IaC
+## 📸 Screenshots
 
-Managing Terraform state, plans, and outputs effectively
+| Step | Screenshot | Description |
+|------|-------------|--------------|
+| 1 | `01_terraform_init_success.png` | Terraform provider initialization |
+| 2 | `Terraform validate success.png` | Configuration validation success |
+| 3 | `02_terraform_plan.png` | Terraform plan summary |
+| 4 | `03_terraform_apply_complete.png` | Apply completed successfully |
+| 5 | `final_web_page.png` | Live Nginx server output |
 
-Understanding provider plugins and modular configuration
+---
 
-Automating server setup with Nginx on EC2
+## 🧠 Key Learnings
 
-Using RDS for secure database hosting
+- Infrastructure as Code (IaC) principles with **Terraform**
+- AWS automation for compute + database + networking
+- Managing remote infrastructure declaratively
+- Using `.gitignore` to secure credentials and sensitive state files
+- Safe repository management for public sharing
 
-🧾 Author
+---
 
-Ajinkya Dhote
-Cloud & DevOps Engineer | AWS + Terraform + CI/CD
-🔗 GitHub Profile
+## 🛡️ Security Practices
 
-🌐 Tags
+- Sensitive keys and `.tfvars` excluded via `.gitignore`
+- No AWS Access Keys or secrets stored in repo
+- Screenshots containing secrets excluded safely
 
-#Terraform #AWS #InfrastructureAsCode #DevOps #Nginx #RDS #EC2
+---
+
+## 🧰 Tech Stack
+
+- **Terraform v1.9+**
+- **AWS EC2, RDS (MySQL), VPC, Nginx**
+- **Git & GitHub for version control**
+- **VS Code / Git Bash** for IaC development
+
+---
+
+## ✨ Author
+
+**Ajinkya Dhote**  
+Cloud & AI Enthusiast | AWS + Terraform + DevOps  
+🌐 [LinkedIn Profile](https://linkedin.com/in/ajinkya0771)  
+📂 [GitHub Projects](https://github.com/ajinkya0771)
+
+---
+
+## 🏁 Final Output
+
+**Public IP:** Displays the Nginx page:  
+> “Terraform EC2 Web Server”
+
+![Final Output Screenshot](screenshots/final_web_page.png)
+
+---
+
+> 💡 _This project serves as a complete AWS Infrastructure deployment example — ideal for DevOps, Cloud, and IaC portfolios._
